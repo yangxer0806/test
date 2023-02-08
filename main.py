@@ -34,14 +34,14 @@ for root, dirs, files in os.walk(cur_dir + '\\Excel'):
       mv = sheet_ranges['F' + str(ci)].value
       lv = sheet_ranges['G' + str(ci)].value
       cv2 = dl2[t]
-      d.append([kh, cv2, 'XS', xsv])
-      d.append([kh, cv2, 'S', sv])
-      d.append([kh, cv2, 'M', mv])
-      d.append([kh, cv2, 'L', lv])
-      ad.append([kh, cv2, 'XS', xsv])
-      ad.append([kh, cv2, 'S', sv])
-      ad.append([kh, cv2, 'M', mv])
-      ad.append([kh, cv2, 'L', lv])
+      d.append([kh, cv2, 'XS', xsv, cv])
+      d.append([kh, cv2, 'S', sv, cv])
+      d.append([kh, cv2, 'M', mv, cv])
+      d.append([kh, cv2, 'L', lv, cv])
+      ad.append([kh, cv2, 'XS', xsv, cv])
+      ad.append([kh, cv2, 'S', sv, cv])
+      ad.append([kh, cv2, 'M', mv, cv])
+      ad.append([kh, cv2, 'L', lv, cv])
      t = t + 1
 
   # 写入款式表格
@@ -52,10 +52,11 @@ for root, dirs, files in os.walk(cur_dir + '\\Excel'):
   sheet.cell(row=1, column=3).value = '尺码名称'
   sheet.cell(row=1, column=4).value = '尺码数据'
   for i in range(len(d)):
-   sheet.cell(row=i+2, column=1).value = d[i][0]
-   sheet.cell(row=i+2, column=2).value = d[i][1]
-   sheet.cell(row=i+2, column=3).value = d[i][2]
-   sheet.cell(row=i+2, column=4).value = d[i][3]
+   sheet.cell(row=i + 2, column=1).value = d[i][0]
+   sheet.cell(row=i + 2, column=2).value = d[i][1]
+   sheet.cell(row=i + 2, column=3).value = d[i][2]
+   sheet.cell(row=i + 2, column=4).value = d[i][3]
+   sheet.cell(row=i + 2, column=6).value = d[i][4]
   wb2.save('Excel2/' + kh + '.xlsx')
 
 # 写入汇总表格
@@ -66,10 +67,11 @@ sheet2.cell(row=1, column=2).value = '部位名称'
 sheet2.cell(row=1, column=3).value = '尺码名称'
 sheet2.cell(row=1, column=4).value = '尺码数据'
 for i1 in range(len(ad)):
- sheet2.cell(row=i1+2, column=1).value = ad[i1][0]
- sheet2.cell(row=i1+2, column=2).value = ad[i1][1]
- sheet2.cell(row=i1+2, column=3).value = ad[i1][2]
- sheet2.cell(row=i1+2, column=4).value = ad[i1][3]
+ sheet2.cell(row=i1 + 2, column=1).value = ad[i1][0]
+ sheet2.cell(row=i1 + 2, column=2).value = ad[i1][1]
+ sheet2.cell(row=i1 + 2, column=3).value = ad[i1][2]
+ sheet2.cell(row=i1 + 2, column=4).value = ad[i1][3]
+ sheet2.cell(row=i1 + 2, column=6).value = ad[i1][4]
 wb3.save('Excel2/all.xlsx')
 
 #
