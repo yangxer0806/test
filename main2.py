@@ -43,7 +43,6 @@ for root, dirs, files in os.walk(cur_dir + '\\Excel'):
 
   # 写入目标表格
 wb2 = Workbook()
-#sheet = wb2.create_sheet('sheet1')
 sheet = wb2["Sheet"]
 sheet.cell(row=1, column=1).value = '款式编码'
 sheet.cell(row=1, column=2).value = '部位名称'
